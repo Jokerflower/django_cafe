@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Prince Benson Meituan</title>
+</head>
+<body>
+	<h1>Prince Benson Fusion Restaurant</h1>
+	<p>Tasty Treats To Your Door</p>
+
+	<h2>Here are all our items!</h2>
+
+	<!-- Item 1 -->
+	<p>Tasty Hamburger: 40RMB</p>
+	<img src="http://imworld.aufeminin.com/story/20130223/hamburger-2643_w1000.jpg">
+	<br>
+
+	<!-- item 2 -->
+	<p>Spicy Chips: 20RMB</p>
+	<img src="http://tse1.mm.bing.net/th?id=OIP.s9ZDSKdb6WsKEEn7bQikcgHaFO&pid=15.1">
+
+	<!--item 3 -->
+	<p>Chicken Wings: 30RMB</p>
+	<img src="http://tse4.mm.bing.net/th?id=OIP.id0hOpHjTkRVf-L-WkvI5gHaE8&pid=15.1">
+
+	<!-- Order Form -->
+	<h2>Place your Order</h2>
+	<form action="{% url 'meituan:home_page' %}" method="POST">
+		{% csrf_token %}
+		<input type="text" name="item" placeholder="Please Type Which Item You Want"><br>
+		<textarea name="address" placeholder="Please Type our Address"></textarea><br>
+		<input type="submit" value="Place Your Order">
+	</form>
+
+	<!-- Show Order -->
+	<h1>Your Order:</h1>
+	<p>Item Ordered: {{item}}</p>
+	<p>Delivery Address: {{address}}</p>
+
+</body>
+</html>
